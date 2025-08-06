@@ -45,6 +45,8 @@ GET /get_sensor_data → Fetches latest pH, conductivity, and ammonia readings.
 
 2. **API Routing (FastAPI – main.py)**
  ```
+File: backend/main.py
+
 @app.get("/latest_prediction")
 def latest_prediction():
     pred = get_latest_prediction()
