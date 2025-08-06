@@ -44,7 +44,7 @@ Calls insert_data() in database.py
 ###  2. **GET /latest_prediction**
 Purpose: Returns the most recent CKD risk prediction stored in the database.
 
-###Response (JSON):
+Response (JSON):
 
 ```json
 
