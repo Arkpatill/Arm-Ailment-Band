@@ -111,7 +111,6 @@ GET /get_sensor_data – Returns simulated or real sensor readings depending on 
 
 ## System & Feature Overview
 
-
 ### Biomarker Interpretation
 <img src="Visuals/Interpretation.jpg" alt="Interpretation" width="300">
 
