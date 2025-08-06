@@ -44,7 +44,7 @@ Calls insert_data() in database.py
 ###  2. **GET /latest_prediction**
 Purpose: Returns the most recent CKD risk prediction stored in the database.
 
-Response (JSON):
+####Response (JSON):
 
 ```json
 
@@ -53,7 +53,7 @@ Response (JSON):
 }
 ```
 
-### Backend Handling:
+#### Backend Handling:
 
 main.py → latest_prediction()
 
@@ -67,7 +67,7 @@ Dummy Mode (simulated random values)
 
 ESP32 Mode (real hardware readings)
 
-Response (JSON) Example – Dummy Mode:
+### Response (JSON) Example – Dummy Mode:
 
 ```json
 
@@ -77,7 +77,7 @@ Response (JSON) Example – Dummy Mode:
   "ammonia": 0.7
 }
 ```
-### Backend Handling:
+#### Backend Handling:
 
 main.py → get_sensor_data()
 
