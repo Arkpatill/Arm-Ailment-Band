@@ -5,6 +5,7 @@ MODE = "esp32"  # Change to "dummy" for local testing without hardware
 
 backend/model.py
 
+```
 import joblib
 import numpy as np
 
@@ -31,4 +32,5 @@ def predict_ckd(sensor_data: dict) -> float:
                    sensor_data['ammonia']]])
     prob = mdl.predict_proba(X)[0][1]
     return float(prob)
+```
 
