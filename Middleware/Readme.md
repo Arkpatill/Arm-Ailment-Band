@@ -16,7 +16,7 @@ The frontend communicates with this backend entirely via HTTP requests.
 ## 1. **POST** `/send_sensor_data`
 **Purpose:** Receives sensor readings (pH, conductivity, ammonia), stores them in the database, and runs a CKD risk prediction.
 
-### **Request Body (JSON):**
+#### **Request Body (JSON):**
 ```json
 {
   "ph": 6.9,
@@ -24,7 +24,7 @@ The frontend communicates with this backend entirely via HTTP requests.
   "ammonia": 0.8
 }
 ```
-### Response (JSON):
+#### Response (JSON):
 
 ```json
 
@@ -32,7 +32,7 @@ The frontend communicates with this backend entirely via HTTP requests.
   "prediction": 0.82
 }
 ```
-### Backend Handling:
+#### Backend Handling:
 
 main.py → send_sensor_data()
 
