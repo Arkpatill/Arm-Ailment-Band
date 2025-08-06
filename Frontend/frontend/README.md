@@ -66,7 +66,7 @@ MODE = "esp32"
 
 ## App UI Focus
 
-## App Screenshots
+
 
 <div align="center">
 
