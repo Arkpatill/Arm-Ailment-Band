@@ -107,6 +107,20 @@ POST /send_sensor_data – Accepts pH, conductivity, and ammonia JSON data; retu
 GET /latest_prediction – Retrieves the latest stored prediction.
 
 GET /get_sensor_data – Returns simulated or real sensor readings depending on mode.
+```
+
+## System & Feature Overview
+
+## Visual Highlights
+
+### Biomarker Interpretation
+![Interpretation](Visuals/Interpretation.jpg)
+
+### Detailed CKD Description
+![Detailed Description](Visuals/Detailed%20Description.png)
+
+### CKD Symptoms & Parameters
+![Symptoms](Visuals/Symptoms.png)
 
 
 ## Future Improvements
