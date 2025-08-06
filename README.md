@@ -87,30 +87,27 @@ cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload
 
-ML Model Trainingcd ml
-python train_catboost.py
-python train_xgboost.py
 
-Machine Learning
+## Machine Learning
 cd ml
 python train_catboost.py
 python train_xgboost.py
 
-Frontend
+## Frontend
 
 Open /frontend in Android Studio or VS Code with Flutter installed.
 
 Configure API endpoint in app settings.
 
 
-API Endpoints
+## API Endpoints
 POST /send_sensor_data – Accepts pH, conductivity, and ammonia JSON data; returns CKD risk prediction.
 
 GET /latest_prediction – Retrieves the latest stored prediction.
 
 GET /get_sensor_data – Returns simulated or real sensor readings depending on mode.
 
-Future Improvements
+## Future Improvements
 Expand biomarker panel for multi‑disease prediction.
 
 Deploy backend and ML models to cloud (AWS/GCP) for scalability.
