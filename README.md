@@ -89,7 +89,7 @@ uvicorn main:app --reload
 
 
 ## Machine Learning
-```bash
+
 cd ml
 python train_catboost.py
 python train_xgboost.py
