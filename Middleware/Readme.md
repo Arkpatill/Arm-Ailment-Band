@@ -129,7 +129,7 @@ cpp
 http://127.0.0.1:8000
 ```
 
-Tech Stack
+## Tech Stack
 FastAPI – API framework
 
 SQLite – Data storage
