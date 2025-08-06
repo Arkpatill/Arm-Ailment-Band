@@ -111,7 +111,16 @@ GET /get_sensor_data – Returns simulated or real sensor readings depending on 
 
 ## System & Feature Overview
 
-## Visual Highligh
+
+### Biomarker Interpretation
+<img src="Visuals/Interpretation.jpg" alt="Interpretation" width="300">
+
+### Detailed CKD Description
+<img src="Visuals/Detailed%20Description.png" alt="Detailed Description" width="300">
+
+### CKD Symptoms & Parameters
+<img src="Visuals/Symptoms.png" alt="Symptoms" width="300">
+
 
 ## Future Improvements
 
