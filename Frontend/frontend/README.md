@@ -1,61 +1,31 @@
-# Arm-Ailment Band Frontend (Flutter)
-
-## Overview
-This Flutter mobile application connects to the Arm‑Ailment Band FastAPI backend to:
-- Fetch real‑time CKD risk predictions from the ML model
-- Display pH, conductivity, and ammonia sensor readings
-- Allow manual refresh of the latest data
-
----
-
-## Frontend Setup
-
-1. Install [Flutter](https://docs.flutter.dev/get-started/install).
-2. Navigate to the `frontend/` directory:
-   ```bash
-   cd frontend
-   flutter pub get
-   flutter run
-
-## Backend Reference (Python Files & Responsibilities) 
- 
- ```
-The frontend communicates with the backend via REST API endpoints.
-These endpoints are defined across multiple .py files in the backend/ folder:
-
-File	               Purpose
-config.py	         Defines whether backend runs in dummy mode or esp32 mode for real hardware.
-model.py	            Loads the trained CatBoost model and runs CKD prediction logic.
-database.py	         Handles SQLite database creation, data insertion, and retrieval of latest predictions.
-main.py	            FastAPI app with /send_sensor_data, /latest_prediction, and /get_sensor_data endpoints.
-```
+# Arm-Ailment Band – Backend & Frontend Python Integration
 
 ## Data Flow Summary
 
-
-1.  **Frontend Request (Flutter App – lib/main.dart)**
-
- ```
+### 1. Frontend Request ([main.dart](../frontend/lib/main.dart))
 User opens the app or taps refresh.
 
-GET /latest_prediction → Fetches latest CKD probability.
+GET `/latest_prediction` → Fetches latest CKD probability.  
+GET `/get_sensor_data` → Fetches latest pH, conductivity, and ammonia readings.
 
-GET /get_sensor_data → Fetches latest pH, conductivity, and ammonia readings.
- ```
+---
 
-2. **API Routing (FastAPI – main.py)**
- ```
-File: backend/main.py
+### 2. API Routing (FastAPI – [main.py](../frontend/main.py))
+Endpoints in `main.py` receive HTTP requests and route them to the correct functions.
 
+```python
 @app.get("/latest_prediction")
 def latest_prediction():
     pred = get_latest_prediction()
     return {"prediction": pred} if pred is not None else {"message": "No data yet"}
+Handles /latest_prediction by calling get_latest_prediction() in database.py.
 
- ```
+3. Prediction Logic (ML Model – model.py)
+predict_ckd() loads the CatBoost model and processes sensor data.
 
-3. **Prediction Logic (ML Model – model.py)**
- ```
+python
+Copy
+Edit
 def predict_ckd(sensor_data: dict) -> float:
     mdl = load_model()
     X = np.array([[sensor_data['ph'],
@@ -63,32 +33,28 @@ def predict_ckd(sensor_data: dict) -> float:
                    sensor_data['ammonia']]])
     prob = mdl.predict_proba(X)[0][1]
     return float(prob)
+Takes pH, conductivity, and ammonia readings and returns CKD probability.
 
- ```
+4. Data Storage & Retrieval (SQLite – database.py)
+Stores sensor readings and retrieves the latest prediction.
 
-4. **Data Storage & Retrieval (SQLite – database.py)**
- ```
-insert_data() stores sensor readings and prediction in sensor_data.db.
+python
+Copy
+Edit
+def get_latest_prediction():
+    conn = sqlite3.connect(DB_FILE)
+    cur = conn.cursor()
+    cur.execute("SELECT prediction FROM sensor_data ORDER BY timestamp DESC LIMIT 1")
+    row = cur.fetchone()
+    conn.close()
+    return row[0] if row else None
+Returns the most recent stored prediction for use in /latest_prediction.
 
-get_latest_prediction() retrieves the most recent prediction for the frontend.
- ```
+5. Configuration (config.py)
+Defines whether backend runs in dummy mode or esp32 mode.
 
-5. **Response to Frontend**
- ```
-FastAPI returns a JSON object.
-
-Flutter parses the JSON and updates:
-
-Prediction card with CKD risk percentage.
-
-Sensor data section with pH, conductivity, and ammonia values.
-
- ```
-## Example Backend Run Command
-
- ```
-cd backend
-pip install -r requirements.txt
-uvicorn main:app --reload
- ```
-
+python
+Copy
+Edit
+# Select mode: "dummy" for simulated data or "esp32" for real device
+MODE = "esp32"
