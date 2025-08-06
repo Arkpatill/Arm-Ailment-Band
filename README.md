@@ -52,6 +52,8 @@ A sweat‑based wearable that continuously collects biomarker data, processes it
 
 ## Repository Structure
 
+## Repository Structure
+```
 arm-ailment-band/
 │
 ├── backend/                  # FastAPI app, database, API flow diagram
@@ -71,6 +73,8 @@ arm-ailment-band/
 ├── frontend/                 # Flutter mobile application code
 │
 └── README.md                 # Project documentation
+```
+
 
 
 
