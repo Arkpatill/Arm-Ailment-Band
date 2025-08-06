@@ -17,17 +17,17 @@ This Flutter mobile application connects to the Arm‑Ailment Band FastAPI backe
    flutter pub get
    flutter run
 
-## Backend Reference (Python Files & Responsibilities) **
+## Backend Reference (Python Files & Responsibilities) 
  
  ```
 The frontend communicates with the backend via REST API endpoints.
 These endpoints are defined across multiple .py files in the backend/ folder:
 
-File	Purpose
-config.py	Defines whether backend runs in dummy mode or esp32 mode for real hardware.
-model.py	Loads the trained CatBoost model and runs CKD prediction logic.
-database.py	Handles SQLite database creation, data insertion, and retrieval of latest predictions.
-main.py	FastAPI app with /send_sensor_data, /latest_prediction, and /get_sensor_data endpoints.
+File	               Purpose
+config.py	         Defines whether backend runs in dummy mode or esp32 mode for real hardware.
+model.py	            Loads the trained CatBoost model and runs CKD prediction logic.
+database.py	         Handles SQLite database creation, data insertion, and retrieval of latest predictions.
+main.py	            FastAPI app with /send_sensor_data, /latest_prediction, and /get_sensor_data endpoints.
 ```
 
 ## Data Flow Summary
