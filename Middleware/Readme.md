@@ -27,8 +27,7 @@ The frontend communicates with this backend entirely via HTTP requests.
 ## Response (JSON):
 
 ```json
-Copy
-Edit
+
 {
   "prediction": 0.82
 }
