@@ -66,12 +66,18 @@ MODE = "esp32"
 
 ## App UI Focus
 
+## App Screenshots
+
+<div align="center">
+
 ### Home Screen
 <img src="../Visuals/Homepage.png" alt="Home Screen" width="300">
 
-### Detailed Report
+### Detailed Report View
 <img src="../Visuals/Detailed%20Report.jpg" alt="Detailed Report" width="300">
 
 ### Flagged Events
-![Flagged Events](../Visuals/Flagged%20events.jpg)
+<img src="../Visuals/Flagged%20events.jpg" alt="Flagged Events" width="300">
+
+</div>
 
