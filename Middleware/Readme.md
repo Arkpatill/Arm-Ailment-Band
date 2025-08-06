@@ -24,7 +24,7 @@ The frontend communicates with this backend entirely via HTTP requests.
   "ammonia": 0.8
 }
 ```
-#### Response (JSON):
+Response (JSON):
 
 ```json
 
