@@ -1,5 +1,3 @@
-backend/database.py
-
 import sqlite3
 
 DB_FILE = "sensor_data.db"
