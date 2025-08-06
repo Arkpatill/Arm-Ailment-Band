@@ -63,3 +63,17 @@ Edit
 # Select mode: "dummy" for simulated data or "esp32" for real device
 MODE = "esp32"
 ```
+
+### Visualization 
+
+## App Screenshots
+
+### Home Screen
+![Home Screen](../Visuals/Homepage.png)
+
+### Detailed Report View
+![Detailed Report](../Visuals/Detailed%20Report.jpg)
+
+### Flagged Events
+![Flagged Events](../Visuals/Flagged%20events.jpg)
+
