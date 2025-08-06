@@ -47,8 +47,7 @@ Purpose: Returns the most recent CKD risk prediction stored in the database.
 Response (JSON):
 
 ```json
-Copy
-Edit
+
 {
   "prediction": 0.82
 }
@@ -71,8 +70,7 @@ ESP32 Mode (real hardware readings)
 Response (JSON) Example – Dummy Mode:
 
 ```json
-Copy
-Edit
+
 {
   "ph": 6.8,
   "conductivity": 900.2,
@@ -94,8 +92,7 @@ Uses http package to send GET/POST requests to backend.
 Example:
 ```
 dart
-Copy
-Edit
+
 final res = await http.get(Uri.parse('$backendBaseUrl/latest_prediction'));
 ```
 
@@ -118,8 +115,7 @@ Flutter parses the JSON and updates the UI
 ```
 
 bash
-Copy
-Edit
+
 cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload
@@ -129,8 +125,7 @@ The backend will run on:
 
 ```
 cpp
-Copy
-Edit
+
 http://127.0.0.1:8000
 ```
 
