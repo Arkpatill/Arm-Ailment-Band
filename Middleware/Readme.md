@@ -67,7 +67,7 @@ Dummy Mode (simulated random values)
 
 ESP32 Mode (real hardware readings)
 
-### Response (JSON) Example – Dummy Mode:
+#### Response (JSON) Example – Dummy Mode:
 
 ```json
 
