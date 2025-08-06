@@ -50,5 +50,43 @@ A sweat‑based wearable that continuously collects biomarker data, processes it
 
 ---
 
+## Repository Structure
+
+arm-ailment-band/
+│
+├── backend/ # FastAPI app, database, API flow diagram
+│ ├── main.py
+│ ├── model.py
+│ ├── database.py
+│ ├── config.py
+│ ├── requirements.txt
+│ └── api_flow.png
+│
+├── ml/ # Data preprocessing, model training scripts
+│ ├── preprocess.py
+│ ├── train_catboost.py
+│ ├── train_xgboost.py
+│ └── evaluation.ipynb
+│
+├── frontend/ # Flutter mobile application code
+│
+└── README.md # Project documentation
+
+
+---
+
+## Setup Instructions
+
+**Backend**
+```bash
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --reload
+
+ML Model Trainingcd ml
+python train_catboost.py
+python train_xgboost.py
+
+
 
 
