@@ -163,12 +163,4 @@ CREATE TABLE IF NOT EXISTS sensor_data (
 )
 ```
 
----
 
-## Notes
-
-* Replace **ESP32 fetching logic** in `/get_sensor_data` with your actual hardware communication code.
-* Ensure `catboost_model.cbm` is present in the `model/` directory.
-* Use `"dummy"` mode for local testing without hardware.
-
----
