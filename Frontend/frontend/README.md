@@ -71,13 +71,13 @@ MODE = "esp32"
 <div align="center">
 
 ### Home Screen
-<img src="../Visuals/Homepage.png" alt="Home Screen" width="300">
+<img src="../Homepage.png" alt="Home Screen" width="300">
 
 ### Detailed Report View
-<img src="../Visuals/Detailed%20Report.jpg" alt="Detailed Report" width="300">
+<img src="../Detailed%20Report.jpg" alt="Detailed Report" width="300">
 
 ### Flagged Events
-<img src="../Visuals/Flagged%20events.jpg" alt="Flagged Events" width="300">
+<img src="../Flagged%20events.jpg" alt="Flagged Events" width="300">
 
 </div>
 
