@@ -50,7 +50,6 @@ A sweat‑based wearable that continuously collects biomarker data, processes it
 
 ---
 
-## Repository Structure
 
 ## Repository Structure
 ```
