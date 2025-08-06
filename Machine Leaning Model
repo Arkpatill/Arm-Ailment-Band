@@ -1,5 +1,7 @@
 ** ml/preprocess.py **
- 
+
+```python
+
 import pandas as pd
 import numpy as np
 from sklearn.impute import KNNImputer
@@ -34,3 +36,5 @@ def load_and_preprocess(data_path: str):
     y = df['class']  # CKD or not
 
     return X, y
+
+```
