@@ -1,0 +1,36 @@
+** ml/preprocess.py **
+ 
+import pandas as pd
+import numpy as np
+from sklearn.impute import KNNImputer
+from sklearn.preprocessing import MinMaxScaler, LabelEncoder
+
+def load_and_preprocess(data_path: str):
+    # Load dataset
+    df = pd.read_csv(data_path)
+
+    # Define numerical and categorical columns
+    numerical_cols = ['age', 'albumin', 'sugar', 'glucose', 'urea', 'creatinine', 'sodium', 'potassium']
+    categorical_cols = ['diabetes_mellitus', 'appetite']
+
+    # Handle missing values
+    imputer = KNNImputer(n_neighbors=5)
+    df[numerical_cols] = imputer.fit_transform(df[numerical_cols])
+
+    for col in categorical_cols:
+        df[col] = df[col].fillna(df[col].mode()[0])
+
+    # Normalize numerical features
+    scaler = MinMaxScaler()
+    df[numerical_cols] = scaler.fit_transform(df[numerical_cols])
+
+    # Encode categorical features
+    encoder = LabelEncoder()
+    for col in categorical_cols:
+        df[col] = encoder.fit_transform(df[col])
+
+    # Split features and target
+    X = df[numerical_cols + categorical_cols]
+    y = df['class']  # CKD or not
+
+    return X, y
