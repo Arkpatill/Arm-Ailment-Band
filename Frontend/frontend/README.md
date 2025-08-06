@@ -64,9 +64,7 @@ Edit
 MODE = "esp32"
 ```
 
-### Visualization 
-
-## App Screenshots
+## App UI Focus
 
 ### Home Screen
 ![Home Screen](../Visuals/Homepage.png)
