@@ -91,8 +91,7 @@ ML Model Trainingcd ml
 python train_catboost.py
 python train_xgboost.py
 
-
-**Machine Learning**
+Machine Learning
 cd ml
 python train_catboost.py
 python train_xgboost.py
