@@ -32,46 +32,55 @@ main.py	FastAPI app with /send_sensor_data, /latest_prediction, and /get_sensor_
 
 ## Data Flow Summary
 
+
+1.  *** Frontend Request (Flutter App – lib/main.dart) ***
+
  ```
-Frontend Request – User opens the app, lib/main.dart calls:
+User opens the app or taps refresh.
 
 GET /latest_prediction → Fetches latest CKD probability.
 
 GET /get_sensor_data → Fetches latest pH, conductivity, and ammonia readings.
+ ```
 
-Backend Response – FastAPI processes these calls:
+2. **  API Routing (FastAPI – main.py) **
+ ```
+Endpoints in main.py receive the HTTP requests.
 
-Reads from SQLite via database.py
+Depending on the request:
 
-Runs prediction with model.py if needed
+For /latest_prediction → Calls get_latest_prediction() in database.py.
 
-Returns JSON to the app
+For /get_sensor_data → Returns simulated or real sensor values based on MODE in config.py.
+ ```
 
-Display – Flutter updates the UI with:
+3. ** Prediction Logic (ML Model – model.py) **
+ ```
+When /send_sensor_data is called, predict_ckd() in model.py:
 
-CKD risk percentage
+Loads the CatBoost model.
 
-Frontend Request – User opens the app, lib/main.dart calls:
+Processes the pH, conductivity, and ammonia values.
 
-GET /latest_prediction → Fetches latest CKD probability.
+Returns CKD probability (0–1).
+ ```
 
-GET /get_sensor_data → Fetches latest pH, conductivity, and ammonia readings.
+4. ** Data Storage & Retrieval (SQLite – database.py) **
+ ```
+insert_data() stores sensor readings and prediction in sensor_data.db.
 
-Backend Response – FastAPI processes these calls:
+get_latest_prediction() retrieves the most recent prediction for the frontend.
+ ```
 
-Reads from SQLite via database.py
+5. ** Response to Frontend **
+ ```
+FastAPI returns a JSON object.
 
-Runs prediction with model.py if needed
+Flutter parses the JSON and updates:
 
-Returns JSON to the app
+Prediction card with CKD risk percentage.
 
-Display – Flutter updates the UI with:
-
-CKD risk percentage
-
-Sensor values
-
-Manual refresh option
+Sensor data section with pH, conductivity, and ammonia values.
 
  ```
 ## Example Backend Run Command
