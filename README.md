@@ -16,7 +16,7 @@ A sweat‑based wearable that continuously collects biomarker data, processes it
 ---
 
 ## System Flow
-![API Flow](backend/api_flow.png)
+![API Flow](https://github.com/Arkpatill/Arm-Ailment-Band/blob/main/Visuals/System%20Flow%20Architecture.png?raw=true)
 
 **Workflow:**
 1. **Data Acquisition** – pH, conductivity, and ammonia readings from ESP32 sensors (or Dummy Mode for testing).
