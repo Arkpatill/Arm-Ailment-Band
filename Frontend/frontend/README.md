@@ -33,7 +33,7 @@ main.py	FastAPI app with /send_sensor_data, /latest_prediction, and /get_sensor_
 ## Data Flow Summary
 
 
-1.  *** Frontend Request (Flutter App – lib/main.dart) ***
+1.  **Frontend Request (Flutter App – lib/main.dart)**
 
  ```
 User opens the app or taps refresh.
@@ -43,7 +43,7 @@ GET /latest_prediction → Fetches latest CKD probability.
 GET /get_sensor_data → Fetches latest pH, conductivity, and ammonia readings.
  ```
 
-2. **  API Routing (FastAPI – main.py) **
+2. **API Routing (FastAPI – main.py)**
  ```
 Endpoints in main.py receive the HTTP requests.
 
@@ -54,7 +54,7 @@ For /latest_prediction → Calls get_latest_prediction() in database.py.
 For /get_sensor_data → Returns simulated or real sensor values based on MODE in config.py.
  ```
 
-3. ** Prediction Logic (ML Model – model.py) **
+3. **Prediction Logic (ML Model – model.py)**
  ```
 When /send_sensor_data is called, predict_ckd() in model.py:
 
@@ -65,14 +65,14 @@ Processes the pH, conductivity, and ammonia values.
 Returns CKD probability (0–1).
  ```
 
-4. ** Data Storage & Retrieval (SQLite – database.py) **
+4. **Data Storage & Retrieval (SQLite – database.py)**
  ```
 insert_data() stores sensor readings and prediction in sensor_data.db.
 
 get_latest_prediction() retrieves the most recent prediction for the frontend.
  ```
 
-5. ** Response to Frontend **
+5. **Response to Frontend**
  ```
 FastAPI returns a JSON object.
 
